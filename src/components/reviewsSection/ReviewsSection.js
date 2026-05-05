@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getReviewsByProduct, getAllReviews, createReview } from '../../services/reviewService';
 import { getProducts } from '../../services/productService';
 import ErrorAlert from '../ErrorAlert';
@@ -36,18 +36,14 @@ const ReviewsSection = ({ productId }) => {
     }
   };
 
-  useEffect(() => {
-    fetchReviews(); // 🔥 دايماً يشتغل
-  }, [productId]);
-
-  const fetchReviews = async () => {
+  const fetchReviews = useCallback(async () => {
     try {
       let data;
 
       if (productId) {
         data = await getReviewsByProduct(productId);
       } else {
-        data = await getAllReviews(); // 🔥 ده المهم
+        data = await getAllReviews();
       }
 
       setReviews(Array.isArray(data) ? data : []);
@@ -56,7 +52,11 @@ const ReviewsSection = ({ productId }) => {
       setReviews([]);
       setLoadError(err.message || 'Failed to load reviews');
     }
-  };
+  }, [productId]);
+
+  useEffect(() => {
+    fetchReviews();
+  }, [fetchReviews]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -108,7 +108,6 @@ const ReviewsSection = ({ productId }) => {
 
       await createReview(reviewData);
       
-      // Clear form and refresh reviews
       setFormData({
         name: '',
         rating: 0,
@@ -116,7 +115,7 @@ const ReviewsSection = ({ productId }) => {
       });
       setIsPopupOpen(false);
       await fetchReviews();
-    }catch (err) {
+    } catch (err) {
       setSubmitError(
         err?.response?.data?.message || err.message || "Server error"
       );
