@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom"; // 🔥 NEW
 import { getReviewsByProduct, getAllReviews, createReview } from '../../services/reviewService';
 import { getProducts } from '../../services/productService';
 import ErrorAlert from '../ErrorAlert';
@@ -12,12 +13,22 @@ const ReviewsSection = ({ productId }) => {
   const [loadError, setLoadError] = useState(null);
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(productId || '');
+
+  const location = useLocation(); // 🔥 NEW
   
   const [formData, setFormData] = useState({
     name: '',
     rating: 0,
     comment: ''
   });
+
+  // 🔥 NEW (يفتح popup من اللينك)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get("review") === "true") {
+      setIsPopupOpen(true);
+    }
+  }, [location]);
 
   useEffect(() => {
     if (!productId) {
@@ -36,7 +47,11 @@ const ReviewsSection = ({ productId }) => {
     }
   };
 
-  const fetchReviews = useCallback(async () => {
+  useEffect(() => {
+    fetchReviews();
+  }, [productId]);
+
+  const fetchReviews = async () => {
     try {
       let data;
 
@@ -52,11 +67,7 @@ const ReviewsSection = ({ productId }) => {
       setReviews([]);
       setLoadError(err.message || 'Failed to load reviews');
     }
-  }, [productId]);
-
-  useEffect(() => {
-    fetchReviews();
-  }, [fetchReviews]);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -115,6 +126,7 @@ const ReviewsSection = ({ productId }) => {
       });
       setIsPopupOpen(false);
       await fetchReviews();
+
     } catch (err) {
       setSubmitError(
         err?.response?.data?.message || err.message || "Server error"
