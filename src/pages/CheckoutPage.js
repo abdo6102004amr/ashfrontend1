@@ -7,6 +7,7 @@ import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/Footer";
 import ErrorAlert from '../components/ErrorAlert';
 import './CheckoutPage.css';
+import instapayImg from "../assets/instapay.jpg";
 // Import product images
 
 const CheckoutPage = () => {
@@ -364,7 +365,7 @@ console.log("cartItems:", cartItems);
                   <div className="instapay-section">
                     <div className="instapay-logo">
                     <img
-                        src="https://quwkcdjgmweynekggzbk.supabase.co/storage/v1/object/public/ASH/instapay.jpg"
+                        src={instapayImg}
                         alt="InstaPay"
                         className="instapay-logo-img"
                       />
