@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from "react-router-dom"; // 🔥 NEW
+import { useLocation } from "react-router-dom";
 import { getReviewsByProduct, getAllReviews, createReview } from '../../services/reviewService';
 import { getProducts } from '../../services/productService';
 import ErrorAlert from '../ErrorAlert';
@@ -14,7 +14,7 @@ const ReviewsSection = ({ productId }) => {
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(productId || '');
 
-  const location = useLocation(); // 🔥 NEW
+  const location = useLocation();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -22,7 +22,7 @@ const ReviewsSection = ({ productId }) => {
     comment: ''
   });
 
-  // 🔥 NEW (يفتح popup من اللينك)
+  // 🔥 فتح popup من اللينك
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.get("review") === "true") {
@@ -47,8 +47,10 @@ const ReviewsSection = ({ productId }) => {
     }
   };
 
+  // ✅ FIX هنا (حل المشكلة)
   useEffect(() => {
     fetchReviews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
   const fetchReviews = async () => {
@@ -180,6 +182,7 @@ const ReviewsSection = ({ productId }) => {
             Real experiences from customers — soft scents, premium feel.
           </p>
         </div>
+
         {loadError && <ErrorAlert message={loadError} onClose={() => setLoadError(null)} />}
 
         {reviews.length > 0 ? (
@@ -218,7 +221,7 @@ const ReviewsSection = ({ productId }) => {
           <div className='popup-content' onClick={(e) => e.stopPropagation()}>
             <button className='popup-close' onClick={handleClosePopup}>×</button>
             <h2 className='popup-title'>Add a review</h2>
-            
+
             {submitError && (
               <div className='error-message' style={{ marginBottom: '1rem', color: 'red' }}>
                 {submitError}
@@ -231,7 +234,6 @@ const ReviewsSection = ({ productId }) => {
                   <label htmlFor='review-product'>Product *</label>
                   <select
                     id='review-product'
-                    name='product'
                     value={selectedProductId}
                     onChange={(e) => {
                       setSelectedProductId(e.target.value);
@@ -252,16 +254,14 @@ const ReviewsSection = ({ productId }) => {
               )}
 
               <div className='form-group'>
-                <label htmlFor='review-name'>Name *</label>
+                <label>Name *</label>
                 <input
                   type='text'
-                  id='review-name'
                   name='name'
                   value={formData.name}
                   onChange={handleInputChange}
                   required
                   className='form-input ashInput'
-                  placeholder='Enter your name'
                   disabled={submitting}
                 />
               </div>
@@ -274,15 +274,13 @@ const ReviewsSection = ({ productId }) => {
               </div>
 
               <div className='form-group'>
-                <label htmlFor='review-comment'>Comment (Optional)</label>
+                <label>Comment</label>
                 <textarea
-                  id='review-comment'
                   name='comment'
                   value={formData.comment}
                   onChange={handleInputChange}
                   rows='6'
                   className='form-textarea ashTextarea'
-                  placeholder='Share your experience...'
                   disabled={submitting}
                 />
               </div>
@@ -295,6 +293,7 @@ const ReviewsSection = ({ productId }) => {
                 {submitting ? 'Submitting...' : 'Add Review'}
               </button>
             </form>
+
           </div>
         </div>
       )}
