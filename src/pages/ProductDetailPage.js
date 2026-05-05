@@ -42,11 +42,9 @@ const ProductDetailPage = () => {
 
   if (!product) return <p>Loading...</p>;
 
-  // 🖼️ IMAGE
   const productImage = product.coverImage || "";
   const galleryImages = safeParse(product.gallery);
 
-  // 🔥 SIZES
   const parsedSizes = safeParse(product.sizes);
 
   const fallbackSizes = [
@@ -90,28 +88,28 @@ const ProductDetailPage = () => {
                 alt={product.name}
                 className="product-detail-image"
               />
-              {/* 🔥 gallery (بدون أي ستايل) */}
+
               <div>
-              {product.coverImage && (
-                <img
-                  src={product.coverImage}
-                  onClick={() => setActiveImage(product.coverImage)}
-                  style={{ width: 50, cursor: "pointer" }}
-                />
-              )}
+                {product.coverImage && (
+                  <img
+                    src={product.coverImage}
+                    alt={product.name}
+                    onClick={() => setActiveImage(product.coverImage)}
+                    style={{ width: 50, cursor: "pointer" }}
+                  />
+                )}
 
-              {galleryImages.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  onClick={() => setActiveImage(img)}
-                  style={{ width: 50, cursor: "pointer" }}
-                />
-              ))}
+                {galleryImages.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt={`gallery-${i}`}
+                    onClick={() => setActiveImage(img)}
+                    style={{ width: 50, cursor: "pointer" }}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-
-            
 
             {/* INFO */}
             <div className="product-detail-info-section">
