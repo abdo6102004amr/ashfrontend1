@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
 import { getProducts } from '../../services/productService';
 import './HeroSection.css';
-import sweetCrushProduct from '../../assets/Screenshot 2025-12-06 002259.png';
 import TypewriterText from '../typewriterText/TypewriterText';
 
 const HeroSection = () => {
   const fullText = "Soft, lingering scents for every quiet moment.";
-  const { addToCart } = useCart();
 
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedSize, setSelectedSize] = useState("");
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -24,52 +19,13 @@ const HeroSection = () => {
         );
 
         setProduct(bestProduct || null);
-
-        // 🔥 set default size
-        if (bestProduct?.sizes?.length > 0) {
-          setSelectedSize(bestProduct.sizes[0].size);
-        }
-
       } catch (err) {
         setProduct(null);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchProduct();
   }, []);
-
-  // 🔥 تجهيز sizes
-  const parsedSizes =
-    product?.sizes && Array.isArray(product.sizes)
-      ? product.sizes
-      : [];
-
-  const sizePrices = {};
-  const sizeSoldOut = {};
-
-  parsedSizes.forEach((s) => {
-    sizePrices[s.size] = Number(s.price) || 0;
-    sizeSoldOut[s.size] = Boolean(s.soldOut);
-  });
-
-  const selectedPrice = sizePrices[selectedSize] || 0;
-
-  const handleAddToBag = () => {
-    if (!product) return;
-
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: selectedPrice,
-      image: product.coverImage
-        ? `http://localhost:5000/uploads/${product.coverImage}`
-        : sweetCrushProduct,
-      available: product.available,
-      selectedSize: selectedSize,
-    });
-  };
 
   return (
     <section className='hero-section'>
@@ -110,10 +66,6 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-
-        
-          
-        
 
       </div>
     </section>
