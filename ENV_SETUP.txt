@@ -1,0 +1,6 @@
+IMPORTANT: Create a .env file in the first-app directory with:
+
+REACT_APP_API_URL=http://localhost:8000
+
+This file is required for the API integration to work.
+

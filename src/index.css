@@ -1,13 +1,68 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --font-heading: "Fredoka", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --bg: #fff7fb;
+  --bg2: #fff0f7;
+  --surface: rgba(255,255,255,.78);
+  --surface2: rgba(255,255,255,.92);
+  --text: #2a1a22;
+  --muted: rgba(42,26,34,.72);
+
+  --pink-50: #fff3f8;
+  --pink-100: #ffe6f1;
+  --pink-200: #ffd0e5;
+  --rose-300: #f5a8c6;
+  --rose-400: #ee86b4;
+  --rose-500: #e96aa7;
+  --blush: #ffdbe9;
+
+  --burgundy-700: #5a1630;
+  --burgundy-800: #3d0f22;
+
+  --accent: var(--rose-500);
+  --accent-2: var(--burgundy-700);
+
+  --shadow-sm: 0 10px 24px rgba(90,22,48,.08);
+  --shadow: 0 16px 48px rgba(90,22,48,.12);
+  --shadow-hard: 0 22px 72px rgba(90,22,48,.16);
+
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
 }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-body);
+}
+
+body{
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(1100px 680px at 12% -8%, rgba(245,168,198,.44), transparent 56%),
+    radial-gradient(920px 620px at 92% 12%, rgba(255,219,233,.72), transparent 55%),
+    radial-gradient(760px 520px at 66% 105%, rgba(233,106,167,.20), transparent 58%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+#root {
+  background: transparent;
+  min-height: 100vh;
+  width: 100%;
+}
+
+a{ color: inherit; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+

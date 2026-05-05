@@ -1,0 +1,145 @@
+.ashHeader{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 28px;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(180deg, rgba(255,247,251,.82), rgba(255,240,247,.46));
+  border-bottom: 1px solid rgba(233,106,167,.12);
+}
+
+.ashBrand{
+  display:flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ashBrand__home{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  color: inherit;
+}
+.ashBrand__mark{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--burgundy-800);
+  background:
+    radial-gradient(16px 16px at 30% 30%, rgba(255,255,255,.9), transparent 60%),
+    linear-gradient(135deg, rgba(255,219,233,.92), rgba(245,168,198,.84));
+  box-shadow:
+    0 10px 22px rgba(233,106,167,.18),
+    inset 0 0 0 1px rgba(90,22,48,.08);
+}
+.ashBrand__name{
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: 18px;
+}
+.ashBrand__tag{
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(90,22,48,.70);
+}
+
+.ashNav{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.ashNav__link{
+  padding: 10px 12px;
+  border-radius: 999px;
+  color: rgba(42,26,34,.85);
+  text-decoration:none;
+  transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.ashNav__link:hover{
+  background: rgba(255,255,255,.62);
+  box-shadow: 0 10px 24px rgba(90,22,48,.08);
+  transform: translateY(-1px);
+}
+
+.ashNavRight{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+
+.ashIconBtn{
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 0;
+  cursor:pointer;
+  background: rgba(255,255,255,.72);
+  box-shadow: inset 0 0 0 1px rgba(233,106,167,.16), var(--shadow-sm);
+  display:grid;
+  place-items:center;
+  position: relative;
+  transition: transform .18s ease, background .18s ease;
+  color: rgba(61,15,34,.85);
+}
+.ashIconBtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.86); }
+.ashBagIcon{ width: 22px; height: 22px; }
+
+.ashBadge{
+  position:absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  font-weight: 800;
+  font-size: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), rgba(90,22,48,.86));
+  box-shadow: 0 10px 24px rgba(90,22,48,.18);
+}
+
+.ashBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  text-decoration:none;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+.ashBtn--primary{
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), rgba(90,22,48,.88));
+  box-shadow: 0 18px 46px rgba(90,22,48,.18);
+}
+.ashBtn--primary:hover{ transform: translateY(-1px) scale(1.01); box-shadow: 0 22px 66px rgba(90,22,48,.22); }
+
+@media (max-width: 820px){
+  .ashHeader{ padding: 12px 16px; }
+  .ashBrand__tag{ display:none; }
+}
+
+
+.ashLogo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}

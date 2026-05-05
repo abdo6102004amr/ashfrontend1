@@ -1,0 +1,42 @@
+.previcy-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 0;
+}
+
+
+.previcy-wrapper {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+
+.previcy-text{
+  background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+  width: 60%;
+  max-width: 800px;
+  padding: 30px 40px;
+  border-radius: var(--radius-lg);
+  text-align: left;
+  line-height: 1.8;
+  color: rgba(42,26,34,.86);
+  box-shadow: var(--shadow-hard);
+  margin-top: 20px;
+  border: 1px solid rgba(233,106,167,.12);
+}
+
+.previcy-text h2 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: rgba(42,26,34,.92);
+}
+
+.previcy-text p {
+  font-size: 16px;
+  color: rgba(42,26,34,.74);
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shop — ASH</title>
+    <meta name="description" content="Shop ASH fragrances — soft, feminine, premium scents." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav container" aria-label="Primary">
+        <a class="brand" href="./index.html" aria-label="ASH home">
+          <span class="brand__mark" aria-hidden="true">ASH</span>
+          <span class="brand__name">ASH</span>
+        </a>
+
+        <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span class="nav__toggleLines" aria-hidden="true"></span>
+        </button>
+
+        <div class="nav__links" data-nav-links>
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link is-active" href="./products.html">Shop</a>
+          <a class="nav__link" href="./about.html">About</a>
+          <a class="nav__link nav__link--pill" href="./cart.html" aria-label="Cart">
+            <span>Cart</span>
+            <span class="badge" data-cart-count>0</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="page">
+      <section class="pageHead">
+        <div class="container pageHead__row">
+          <div>
+            <div class="breadcrumbs">
+              <a href="./index.html">Home</a>
+              <span class="dividerDot" aria-hidden="true">•</span>
+              <span aria-current="page">Shop</span>
+            </div>
+            <h1 class="h1" style="font-size:clamp(34px,4.3vw,54px);margin-top:14px;">Shop the collection</h1>
+            <p class="lead" style="margin-bottom:0;">Soft glow bottles, playful elegance, clean notes.</p>
+          </div>
+
+          <div class="toolbar" aria-label="Filters">
+            <label class="field" aria-label="Search">
+              <span class="field__icon" aria-hidden="true"></span>
+              <input type="search" placeholder="Search (demo)" disabled>
+            </label>
+            <label class="field" aria-label="Sort by">
+              <span class="field__icon" aria-hidden="true"></span>
+              <select disabled>
+                <option>Sort: Featured</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top:0;">
+        <div class="container">
+          <div class="grid cards">
+            <article class="card product" data-sku="veloura">
+              <a class="product__media" href="./product.html?sku=veloura" aria-label="Veloura details">
+                <div class="product__spot" aria-hidden="true"></div>
+                <div class="product__bottleMini" aria-hidden="true"></div>
+              </a>
+              <div class="product__body">
+                <div class="product__top">
+                  <h3 class="h3">Veloura</h3>
+                  <span class="pill">Rose • Vanilla</span>
+                </div>
+                <p class="muted small">Soft floral with a warm finish.</p>
+                <div class="product__bottom">
+                  <div class="price"><span class="price__now">$78</span></div>
+                  <button class="btn btn--soft" type="button" data-add-to-cart data-sku="veloura" data-name="Veloura" data-price="78">Add</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card product" data-sku="blush-noir">
+              <a class="product__media" href="./product.html?sku=blush-noir" aria-label="Blush Noir details">
+                <div class="product__spot product__spot--deep" aria-hidden="true"></div>
+                <div class="product__bottleMini product__bottleMini--deep" aria-hidden="true"></div>
+              </a>
+              <div class="product__body">
+                <div class="product__top">
+                  <h3 class="h3">Blush Noir</h3>
+                  <span class="pill pill--deep">Berry • Amber</span>
+                </div>
+                <p class="muted small">Deep burgundy elegance, still soft.</p>
+                <div class="product__bottom">
+                  <div class="price"><span class="price__now">$84</span></div>
+                  <button class="btn btn--soft" type="button" data-add-to-cart data-sku="blush-noir" data-name="Blush Noir" data-price="84">Add</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card product" data-sku="petal-air">
+              <a class="product__media" href="./product.html?sku=petal-air" aria-label="Petal Air details">
+                <div class="product__spot product__spot--airy" aria-hidden="true"></div>
+                <div class="product__bottleMini product__bottleMini--airy" aria-hidden="true"></div>
+              </a>
+              <div class="product__body">
+                <div class="product__top">
+                  <h3 class="h3">Petal Air</h3>
+                  <span class="pill">Peony • Musk</span>
+                </div>
+                <p class="muted small">Light, clean, airy and feminine.</p>
+                <div class="product__bottom">
+                  <div class="price"><span class="price__now">$72</span></div>
+                  <button class="btn btn--soft" type="button" data-add-to-cart data-sku="petal-air" data-name="Petal Air" data-price="72">Add</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card product" data-sku="silk-sugar">
+              <a class="product__media" href="./product.html?sku=silk-sugar" aria-label="Silk Sugar details">
+                <div class="product__spot" aria-hidden="true"></div>
+                <div class="product__bottleMini" aria-hidden="true" style="filter:saturate(.92) hue-rotate(-8deg);"></div>
+              </a>
+              <div class="product__body">
+                <div class="product__top">
+                  <h3 class="h3">Silk Sugar</h3>
+                  <span class="pill">Marshmallow • Cream</span>
+                </div>
+                <p class="muted small">Sweet, clean, airy gourmand.</p>
+                <div class="product__bottom">
+                  <div class="price"><span class="price__now">$76</span></div>
+                  <button class="btn btn--soft" type="button" data-add-to-cart data-sku="silk-sugar" data-name="Silk Sugar" data-price="76">Add</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card product" data-sku="rose-mist">
+              <a class="product__media" href="./product.html?sku=rose-mist" aria-label="Rose Mist details">
+                <div class="product__spot product__spot--airy" aria-hidden="true"></div>
+                <div class="product__bottleMini product__bottleMini--airy" aria-hidden="true" style="filter:saturate(1.05) hue-rotate(6deg);"></div>
+              </a>
+              <div class="product__body">
+                <div class="product__top">
+                  <h3 class="h3">Rose Mist</h3>
+                  <span class="pill">Rosewater • Linen</span>
+                </div>
+                <p class="muted small">Fresh, minimal, skin-close.</p>
+                <div class="product__bottom">
+                  <div class="price"><span class="price__now">$68</span></div>
+                  <button class="btn btn--soft" type="button" data-add-to-cart data-sku="rose-mist" data-name="Rose Mist" data-price="68">Add</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card product" data-sku="velvet-amber">
+              <a class="product__media" href="./product.html?sku=velvet-amber" aria-label="Velvet Amber details">
+                <div class="product__spot product__spot--deep" aria-hidden="true"></div>
+                <div class="product__bottleMini product__bottleMini--deep" aria-hidden="true" style="filter:saturate(.95) hue-rotate(10deg);"></div>
+              </a>
+              <div class="product__body">
+                <div class="product__top">
+                  <h3 class="h3">Velvet Amber</h3>
+                  <span class="pill pill--deep">Amber • Cashmere</span>
+                </div>
+                <p class="muted small">Warm, rich, softly magnetic.</p>
+                <div class="product__bottom">
+                  <div class="price"><span class="price__now">$88</span></div>
+                  <button class="btn btn--soft" type="button" data-add-to-cart data-sku="velvet-amber" data-name="Velvet Amber" data-price="88">Add</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <div class="brand brand--footer">
+            <span class="brand__mark" aria-hidden="true">ASH</span>
+            <span class="brand__name">ASH</span>
+          </div>
+          <p class="muted small">Soft, feminine, modern fragrances — premium but friendly.</p>
+        </div>
+
+        <div class="footer__links" aria-label="Footer">
+          <a href="./products.html">Shop</a>
+          <a href="./about.html">About</a>
+          <a href="./cart.html">Cart</a>
+          <a href="./product.html?sku=veloura">Veloura</a>
+        </div>
+
+        <div class="footer__fineprint muted small">
+          <div>© <span data-year></span> ASH</div>
+          <div class="footer__dots" aria-hidden="true">•</div>
+          <div>Made with soft glow</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
