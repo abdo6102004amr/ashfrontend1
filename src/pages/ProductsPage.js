@@ -28,7 +28,7 @@ const ProductsPage = () => {
     const fetchProducts = async () => {
       try {
         const data = await getProducts();
-        setProducts(data);
+        setProducts(Array.isArray(data) ? data : []); // 🔥 حماية
       } catch {
         setError("Failed to load products");
       } finally {
@@ -38,7 +38,7 @@ const ProductsPage = () => {
 
     fetchProducts();
   }, []);
-  console.log(products);
+
   const formattedProducts = products.map((product) => {
     const sizesParsed = safeParse(product.sizes);
 
@@ -46,36 +46,30 @@ const ProductsPage = () => {
     const sizeSoldOut = {};
     let productSizes = [];
 
-    // ✅ لو Array
     if (Array.isArray(sizesParsed)) {
       productSizes = sizesParsed.map((s) => s.size);
 
       sizesParsed.forEach((s) => {
         const key = (s.size || "").replace(/\s/g, "").toLowerCase();
-
         sizePrices[key] = toNumber(s.price);
         sizeSoldOut[key] = Boolean(s.soldOut);
       });
     }
 
-    // ✅ لو Object
     else if (typeof sizesParsed === "object" && sizesParsed !== null) {
       productSizes = Object.keys(sizesParsed);
 
       Object.entries(sizesParsed).forEach(([key, value]) => {
         const normalized = key.replace(/\s/g, "").toLowerCase();
-
         sizePrices[normalized] = toNumber(value);
         sizeSoldOut[normalized] = false;
       });
     }
 
-    // 🔥 fallback
     if (productSizes.length === 0) {
       productSizes = ["70 ml", "250 ml"];
     }
 
-    // 🔥 حساب السعر
     let prices = [];
 
     if (Array.isArray(sizesParsed)) {
