@@ -7,7 +7,7 @@ import Navbar from "../components/navbar/navbar";
 import Footer from "../components/footer/Footer";
 import ErrorAlert from '../components/ErrorAlert';
 import './CheckoutPage.css';
-import instapayImg from "../assets/instapay.jpg";
+import instapayImg from "../assets/instapay/instapay.jpg";
 // Import product images
 
 const CheckoutPage = () => {
