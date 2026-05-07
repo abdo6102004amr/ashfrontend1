@@ -67,8 +67,8 @@ const ProductsPage = () => {
     }
 
     if (productSizes.length === 0) {
-      productSizes = ["70 ml", "250 ml"];
-    }
+  productSizes = ["10 ml", "100 ml", "250 ml"];
+}
 
     let prices = [];
 
