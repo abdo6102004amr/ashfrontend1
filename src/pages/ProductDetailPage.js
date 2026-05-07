@@ -48,9 +48,10 @@ const ProductDetailPage = () => {
   const parsedSizes = safeParse(product.sizes);
 
   const fallbackSizes = [
-    { size: "70 ml", price: product.price || 0, soldOut: false },
-    { size: "250 ml", price: product.price || 0, soldOut: false },
-  ];
+  { size: "10 ml", price: product.price || 0, soldOut: false },
+  { size: "100 ml", price: product.price || 0, soldOut: false },
+  { size: "250 ml", price: product.price || 0, soldOut: false },
+];
 
   const finalSizes =
     parsedSizes && parsedSizes.length > 0
