@@ -6,11 +6,11 @@ import './ProductCard.css'
 const ProductCard = ({ product }) => {
   const { id, image, name, price, available, sizePrices = {}, sizeSoldOut = {} } = product
   const { addToCart } = useCart();
-  const sizeOptions = product.sizes || ['10 ml', '100 ml', '250 ml'];
+  const sizeOptions = product.sizes || ['10 ml', '75 ml', '250 ml'];
 
   const [selectedSize, setSelectedSize] = useState(
-    sizeOptions.includes('100 ml')
-      ? '100 ml'
+    sizeOptions.includes('75 ml')
+      ? '75 ml'
       : sizeOptions[0]
   );
   // 🔥 ADD (حل مشكلة اختلاف 70ml و 70 ml)
