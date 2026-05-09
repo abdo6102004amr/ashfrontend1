@@ -49,7 +49,7 @@ const ProductDetailPage = () => {
 
   const fallbackSizes = [
   { size: "10 ml", price: product.price || 0, soldOut: false },
-  { size: "100 ml", price: product.price || 0, soldOut: false },
+  { size: "75 ml", price: product.price || 0, soldOut: false },
   { size: "250 ml", price: product.price || 0, soldOut: false },
 ];
 
